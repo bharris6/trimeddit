@@ -1,0 +1,14 @@
+{
+        "name": "trimeddit",
+        "version": "0.1",
+        "description": "Trims whitespace from end of Reddit comments.",
+        "permissions": ["activeTab", "*://*.reddit.com/*"],
+        "content_scripts": [
+          {
+                "matches": ["*://*.reddit.com/*"],
+                "run_at": "document_idle",
+                "js": ["trimmer.js"]
+          }
+        ],
+        "manifest_version": 2
+}
