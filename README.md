@@ -19,4 +19,19 @@ Reddit comments are part of a set of `div` elements identified by having "userte
 
 `const divs = document.getElementsByClassName("usertext-body");`  
 
-Then within the comment's HTML there can be one or more `<p>` elements.  Since we want to trim just the end of the comment, we start at the last child of the parent element (which corresponds to the last `<p>` element in the comment's body) and remove each child element until we find non-matching text.  That way, any combination of the characters/groups we want to remove will get removed.  
+Then within the comment's HTML there can be one or more `<p>` elements.  Since we want to trim just the end of the comment, we start at the last child of the parent element (which corresponds to the last `<p>` element in the comment's body) and remove each child element until we find non-matching text.  That way, any combination of the characters/groups we want to remove will get removed (and the reverse-loop means we don't have to worry about modifying the list that we're iterating over).
+
+## How do I use this?
+
+This is a Chrome extension and is unpacked, meaning you'll need to set Chrome into developer mode and then import this extension.
+
+1. Open a new tab in Chrome
+2. Go to the URL: `chrome://extensions`
+3. Turn Developer Mode on (should be a button in the top-right corner)
+4. Select "Load Unpacked".  Navigate to the folder where you downloaded these files, and then click "Select Folder".
+
+You should now have a new extension listed, and a new button on your toolbar.
+
+### Then what?
+
+The extension only becomes active when you navigate to a `*.reddit.com/*` page/tab.  It will automatically parse the DOM and execute the comment trimming.  
